@@ -17,7 +17,7 @@ html {
 body {
     margin: 0;
     padding: 0;
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 20%, #ffecd2 40%, #ff758c 60%, #ff6b95 80%, #ff477e 100%);
     background-size: 400% 400%;
@@ -380,6 +380,11 @@ img:hover {
     50% { transform: scale(1.15); }
 }
 
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
 /* 💍 Second Screen */
 #secondScreen {
     display: none;
@@ -611,6 +616,7 @@ img:hover {
     height: 100%;
     background: radial-gradient(circle, rgba(255, 23, 68, 0.3), rgba(255, 20, 147, 0.5), rgba(0, 0, 0, 0.85));
     backdrop-filter: blur(10px);
+    pointer-events: auto;
     z-index: 999;
     animation: fadeIn 0.5s ease;
 }
@@ -848,6 +854,7 @@ img:hover {
         margin-top: 18px !important;
         width: auto;
         max-width: 90%;
+        pointer-events: auto;
     }
 }
 
@@ -1237,12 +1244,14 @@ function showLove() {
     document.getElementById("heartPopup").style.display="block";
     document.getElementById("overlay").style.display="block";
     document.getElementById("loveSong").play();
+    document.body.style.overflow = "auto";
     launchConfetti();
     createBurstHearts();
 }
 
 function closeHeartPopup() {
     document.getElementById("heartPopup").style.display="none";
+    document.body.style.overflow = "auto";
     document.getElementById("overlay").style.display="none";
     
     // Continue with original flow
