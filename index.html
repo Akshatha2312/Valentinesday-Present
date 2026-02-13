@@ -5,10 +5,20 @@
 <title>Will You Be My Valentine? 💖</title>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 body {
     margin: 0;
     padding: 0;
     height: 100vh;
+    width: 100vw;
     background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 20%, #ffecd2 40%, #ff758c 60%, #ff6b95 80%, #ff477e 100%);
     background-size: 400% 400%;
     animation: gradientShift 20s ease infinite;
@@ -16,10 +26,12 @@ body {
     justify-content: center;
     align-items: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
 }
 
 body::before {
@@ -72,6 +84,8 @@ body::before {
     border: 4px solid rgba(255, 192, 203, 0.6);
     min-width: 500px;
     max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
     position: relative;
     overflow: visible;
 }
@@ -127,12 +141,14 @@ h1 {
     margin-bottom: 30px;
     letter-spacing: 2px;
     position: relative;
+    padding: 0 50px;
+    box-sizing: border-box;
 }
 
 h1::before {
     content: '💕';
     position: absolute;
-    left: -60px;
+    left: 5px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 35px;
@@ -142,7 +158,7 @@ h1::before {
 h1::after {
     content: '💕';
     position: absolute;
-    right: -60px;
+    right: 5px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 35px;
@@ -171,6 +187,9 @@ h1:hover {
     gap: 30px;
     margin-top: 30px;
     min-height: 80px;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 button {
@@ -185,6 +204,8 @@ button {
     letter-spacing: 0.5px;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 /* YES BUTTON */
@@ -362,12 +383,18 @@ img:hover {
 /* 💍 Second Screen */
 #secondScreen {
     display: none;
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     animation: fadeIn 1.5s ease forwards;
     max-width: 600px;
+    width: 90%;
     padding: 30px;
+    box-sizing: border-box;
+    z-index: 10;
 }
 
 #secondScreen h1 {
@@ -429,11 +456,18 @@ img:hover {
 /* 💖 Final Screen */
 #finalScreen {
     display: none;
-    position: absolute;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     animation: fadeIn 2s ease forwards;
     padding: 40px;
+    width: 90%;
+    max-width: 600px;
+    box-sizing: border-box;
+    z-index: 10;
 }
 #finalScreen h1 {
     font-size: 56px;
@@ -583,268 +617,75 @@ img:hover {
 
 /* Mobile Responsive Styles */
 @media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
     body::before {
-        font-size: 200px;
+        font-size: 120px;
     }
 
     .card {
         min-width: auto;
-        max-width: 90%;
-        width: 90%;
-        padding: 30px 20px;
+        max-width: 100%;
+        width: calc(100% - 20px);
+        padding: 25px 15px;
         border-radius: 25px;
         border-width: 3px;
         overflow-x: hidden;
         overflow-y: visible;
+        margin: 10px;
     }
 
     .card::before,
     .card::after {
-        font-size: 40px;
-        top: -20px;
-        right: -20px;
+        font-size: 35px;
+        top: -18px;
+        right: -18px;
     }
 
     .card::after {
-        bottom: -20px;
-        left: -20px;
+        bottom: -18px;
+        left: -18px;
     }
 
     h1 {
-        font-size: 32px;
+        font-size: 28px;
         letter-spacing: 1px;
         margin-bottom: 20px;
+        padding: 0 35px;
+        word-wrap: break-word;
     }
 
     h1::before,
     h1::after {
-        font-size: 25px;
-        left: -40px;
+        font-size: 22px;
+        left: 3px;
     }
 
     h1::after {
-        right: -40px;
+        right: 3px;
     }
 
     .buttons {
         flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
+        gap: 12px;
+        margin-top: 15px;
         min-height: auto;
         position: relative;
+        width: 100%;
     }
 
     button {
-        padding: 14px 35px;
-        font-size: 18px;
+        padding: 14px 30px;
+        font-size: 17px;
         width: 100%;
-        max-width: 250px;
+        max-width: 220px;
         position: relative !important;
         left: 0 !important;
         top: 0 !important;
         margin: 0 auto;
-    }
-
-    #yesBtn::before,
-    #yesBtn::after {
-        font-size: 20px;
-        left: 10px;
-    }
-
-    #yesBtn::after {
-        right: 10px;
-    }
-
-    #noBtn::before {
-        font-size: 18px;
-        left: 10px;
-    }
-
-    #popup {
-        margin-top: 20px;
-        overflow: visible;
-    }
-
-    #popup h2 {
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
-
-    #popup h2::before,
-    #popup h2::after {
-        font-size: 22px;
-        top: -8px;
-        left: -35px;
-    }
-
-    #popup h2::after {
-        right: -35px;
-    }
-
-    img {
-        width: 90%;
-        max-width: 280px;
-        height: auto;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        border-radius: 20px;
-        border-width: 4px;
-    }
-
-    #nameDisplay {
-        font-size: 26px;
-        margin-top: 20px;
-    }
-
-    #nameDisplay::before,
-    #nameDisplay::after {
-        font-size: 24px;
-        left: -35px;
-    }
-
-    #nameDisplay::after {
-        right: -35px;
-    }
-
-    #secondScreen {
-        max-width: 90%;
-        width: 90%;
-        padding: 20px;
-    }
-
-    #secondScreen h1 {
-        font-size: 36px;
-        margin-bottom: 25px;
-    }
-
-    #secondScreen > div:first-child {
-        font-size: 35px !important;
-        margin-bottom: 15px !important;
-    }
-
-    #foreverBtn {
-        padding: 16px 40px;
-        font-size: 20px;
-        border-width: 3px;
-    }
-
-    #foreverBtn::before {
-        font-size: 22px;
-        left: 12px;
-    }
-
-    #finalScreen {
-        padding: 20px;
-        width: 90%;
-    }
-
-    #finalScreen h1 {
-        font-size: 38px;
-        margin-bottom: 15px;
-    }
-
-    #finalScreen h1::before {
-        font-size: 35px;
-        margin-bottom: 15px;
-    }
-
-    #finalScreen h2 {
-        font-size: 28px;
-    }
-
-    #finalScreen > div:last-child {
-        font-size: 45px !important;
-        margin-top: 20px !important;
-    }
-
-    #heartPopup .popup-content {
-        min-width: auto;
-        width: 85%;
-        max-width: 400px;
-        padding: 40px 30px;
-        border-radius: 30px;
-        border-width: 4px;
-    }
-
-    #heartPopup .popup-content::before {
-        font-size: 28px;
-        letter-spacing: 10px;
-    }
-
-    #heartPopup h2 {
-        font-size: 32px;
-        letter-spacing: 1px;
-    }
-
-    #heartPopup p {
-        font-size: 20px;
-    }
-
-    #heartPopup div[style*="font-size: 80px"] {
-        font-size: 60px !important;
-    }
-
-    .floating-heart {
-        font-size: 35px;
-    }
-
-    .sparkle {
-        width: 6px;
-        height: 6px;
-    }
-
-    #heartPopup button {
-        padding: 14px 35px !important;
-        font-size: 18px !important;
-        margin-top: 20px !important;
-        width: auto;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    body::before {
-        font-size: 150px;
-    }
-
-    .card {
-        width: 95%;
-        padding: 25px 15px;
-        border-radius: 20px;
-        overflow-y: visible;
-    }
-
-    .card::before,
-    .card::after {
-        font-size: 30px;
-        top: -15px;
-        right: -15px;
-    }
-
-    .card::after {
-        bottom: -15px;
-        left: -15px;
-    }
-
-    h1 {
-        font-size: 26px;
-        letter-spacing: 0.5px;
-    }
-
-    h1::before,
-    h1::after {
-        font-size: 20px;
-        left: -30px;
-    }
-
-    h1::after {
-        right: -30px;
-    }
-
-    button {
-        padding: 12px 30px;
-        font-size: 16px;
-        max-width: 200px;
     }
 
     #yesBtn::before,
@@ -857,23 +698,228 @@ img:hover {
         right: 8px;
     }
 
+    #noBtn::before {
+        font-size: 16px;
+        left: 8px;
+    }
+
+    #popup {
+        margin-top: 15px;
+        overflow: visible;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     #popup h2 {
-        font-size: 20px;
+        font-size: 22px;
+        margin-bottom: 12px;
+        padding: 0 10px;
+        word-wrap: break-word;
     }
 
     #popup h2::before,
     #popup h2::after {
-        font-size: 18px;
-        left: -30px;
+        display: none;
     }
 
-    #popup h2::after {
-        right: -30px;
+    img {
+        width: 90%;
+        max-width: 260px;
+        height: auto;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 20px;
+        border-width: 3px;
+    }
+
+    #nameDisplay {
+        font-size: 24px;
+        margin-top: 15px;
+        padding: 0 10px;
+        word-wrap: break-word;
+    }
+
+    #nameDisplay::before,
+    #nameDisplay::after {
+        display: none;
+    }
+
+    #secondScreen {
+        max-width: 100%;
+        width: calc(100% - 20px);
+        padding: 20px 15px;
+        box-sizing: border-box;
+    }
+
+    #secondScreen h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        padding: 0 30px;
+    }
+
+    #secondScreen > div:first-child {
+        font-size: 32px !important;
+        margin-bottom: 12px !important;
+    }
+
+    #foreverBtn {
+        padding: 15px 35px;
+        font-size: 19px;
+        border-width: 3px;
+        max-width: 220px;
+        width: 100%;
+    }
+
+    #foreverBtn::before {
+        font-size: 20px;
+        left: 10px;
+    }
+
+    #finalScreen {
+        padding: 20px 15px;
+        width: calc(100% - 20px);
+        box-sizing: border-box;
+    }
+
+    #finalScreen h1 {
+        font-size: 32px;
+        margin-bottom: 12px;
+        padding: 0 10px;
+    }
+
+    #finalScreen h1::before {
+        font-size: 30px;
+        margin-bottom: 12px;
+    }
+
+    #finalScreen h2 {
+        font-size: 24px;
+        padding: 0 10px;
+    }
+
+    #finalScreen > div:last-child {
+        font-size: 40px !important;
+        margin-top: 18px !important;
+    }
+
+    #heartPopup .popup-content {
+        min-width: auto;
+        width: calc(100% - 30px);
+        max-width: 360px;
+        padding: 35px 20px;
+        border-radius: 25px;
+        border-width: 3px;
+        box-sizing: border-box;
+    }
+
+    #heartPopup .popup-content::before {
+        font-size: 24px;
+        letter-spacing: 8px;
+    }
+
+    #heartPopup h2 {
+        font-size: 28px;
+        letter-spacing: 1px;
+    }
+
+    #heartPopup p {
+        font-size: 18px;
+        padding: 0 5px;
+    }
+
+    #heartPopup div[style*="font-size: 80px"] {
+        font-size: 55px !important;
+        margin: 15px 0 !important;
+    }
+
+    .floating-heart {
+        font-size: 30px;
+    }
+
+    .sparkle {
+        width: 5px;
+        height: 5px;
+    }
+
+    #heartPopup button {
+        padding: 13px 30px !important;
+        font-size: 17px !important;
+        margin-top: 18px !important;
+        width: auto;
+        max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+
+    body::before {
+        font-size: 100px;
+    }
+
+    .card {
+        width: calc(100% - 10px);
+        padding: 20px 12px;
+        border-radius: 20px;
+        overflow-y: visible;
+        margin: 5px;
+    }
+
+    .card::before,
+    .card::after {
+        font-size: 28px;
+        top: -14px;
+        right: -14px;
+    }
+
+    .card::after {
+        bottom: -14px;
+        left: -14px;
+    }
+
+    h1 {
+        font-size: 24px;
+        letter-spacing: 0.5px;
+        padding: 0 28px;
+    }
+
+    h1::before,
+    h1::after {
+        font-size: 18px;
+        left: 2px;
+    }
+
+    h1::after {
+        right: 2px;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 16px;
+        max-width: 200px;
+    }
+
+    #yesBtn::before,
+    #yesBtn::after {
+        font-size: 16px;
+        left: 6px;
+    }
+
+    #yesBtn::after {
+        right: 6px;
+    }
+
+    #popup h2 {
+        font-size: 19px;
+        padding: 0 8px;
     }
 
     img {
         width: 95%;
-        max-width: 250px;
+        max-width: 230px;
         height: auto;
         display: block;
         margin-left: auto;
@@ -881,21 +927,13 @@ img:hover {
     }
 
     #nameDisplay {
-        font-size: 22px;
-    }
-
-    #nameDisplay::before,
-    #nameDisplay::after {
         font-size: 20px;
-        left: -30px;
-    }
-
-    #nameDisplay::after {
-        right: -30px;
+        padding: 0 8px;
     }
 
     #secondScreen h1 {
-        font-size: 28px;
+        font-size: 26px;
+        padding: 0 25px;
     }
 
     #secondScreen > div:first-child {
@@ -903,8 +941,9 @@ img:hover {
     }
 
     #foreverBtn {
-        padding: 14px 35px;
-        font-size: 18px;
+        padding: 13px 30px;
+        font-size: 17px;
+        max-width: 200px;
     }
 
     #foreverBtn::before {
@@ -913,98 +952,32 @@ img:hover {
     }
 
     #finalScreen h1 {
-        font-size: 30px;
+        font-size: 28px;
+        padding: 0 8px;
     }
 
     #finalScreen h1::before {
-        font-size: 28px;
+        font-size: 26px;
     }
 
     #finalScreen h2 {
-        font-size: 22px;
+        font-size: 20px;
+        padding: 0 8px;
     }
 
     #finalScreen > div:last-child {
-        font-size: 35px !important;
+        font-size: 32px !important;
     }
 
     #heartPopup .popup-content {
-        width: 90%;
-        padding: 30px 20px;
-        border-radius: 25px;
+        width: calc(100% - 20px);
+        padding: 28px 15px;
+        border-radius: 20px;
     }
 
     #heartPopup .popup-content::before {
-        font-size: 22px;
+        font-size: 20px;
         letter-spacing: 5px;
-    }
-
-    #heartPopup h2 {
-        font-size: 26px;
-    }
-
-    #heartPopup p {
-        font-size: 18px;
-    }
-
-    #heartPopup div[style*="font-size: 80px"] {
-        font-size: 50px !important;
-        margin: 15px 0 !important;
-    }
-
-    .floating-heart {
-        font-size: 28px;
-    }
-
-    #heartPopup button {
-        padding: 12px 30px !important;
-        font-size: 16px !important;
-    }
-}
-
-@media screen and (max-width: 360px) {
-    .card {
-        padding: 20px 12px;
-        overflow-y: visible;
-    }
-
-    h1 {
-        font-size: 22px;
-    }
-
-    h1::before,
-    h1::after {
-        font-size: 18px;
-        left: -25px;
-    }
-
-    h1::after {
-        right: -25px;
-    }
-
-    button {
-        padding: 10px 25px;
-        font-size: 15px;
-    }
-
-    #popup h2 {
-        font-size: 18px;
-    }
-
-    #nameDisplay {
-        font-size: 20px;
-    }
-
-    #secondScreen h1 {
-        font-size: 24px;
-    }
-
-    #finalScreen h1 {
-        font-size: 26px;
-    }
-
-    #finalScreen h2 {
-        font-size: 20px;
     }
 
     #heartPopup h2 {
@@ -1013,53 +986,141 @@ img:hover {
 
     #heartPopup p {
         font-size: 16px;
+    }
+
+    #heartPopup div[style*="font-size: 80px"] {
+        font-size: 45px !important;
+        margin: 12px 0 !important;
+    }
+
+    .floating-heart {
+        font-size: 26px;
+    }
+
+    #heartPopup button {
+        padding: 11px 25px !important;
+        font-size: 15px !important;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    body {
+        padding: 3px;
+    }
+
+    .card {
+        padding: 18px 10px;
+        overflow-y: visible;
+        width: calc(100% - 6px);
+        margin: 3px;
+    }
+
+    h1 {
+        font-size: 20px;
+        padding: 0 25px;
+    }
+
+    h1::before,
+    h1::after {
+        font-size: 16px;
+        left: 1px;
+    }
+
+    h1::after {
+        right: 1px;
+    }
+
+    button {
+        padding: 10px 22px;
+        font-size: 15px;
+        max-width: 180px;
+    }
+
+    #popup h2 {
+        font-size: 17px;
+        padding: 0 5px;
+    }
+
+    #nameDisplay {
+        font-size: 18px;
+        padding: 0 5px;
+    }
+
+    #secondScreen h1 {
+        font-size: 22px;
+        padding: 0 20px;
+    }
+
+    #finalScreen h1 {
+        font-size: 24px;
+        padding: 0 5px;
+    }
+
+    #finalScreen h2 {
+        font-size: 18px;
+        padding: 0 5px;
+    }
+
+    #heartPopup h2 {
+        font-size: 22px;
+    }
+
+    #heartPopup p {
+        font-size: 14px;
     }
 }
 
 /* Landscape mobile orientation */
 @media screen and (max-height: 600px) and (orientation: landscape) {
+    body {
+        padding: 5px;
+    }
+
     .card {
-        padding: 20px 25px;
+        padding: 15px 20px;
         max-height: 90vh;
         overflow-y: auto;
+        width: calc(100% - 20px);
     }
 
     h1 {
-        font-size: 28px;
-        margin-bottom: 15px;
+        font-size: 24px;
+        margin-bottom: 10px;
+        padding: 0 30px;
     }
 
     .buttons {
-        margin-top: 15px;
-        gap: 10px;
+        margin-top: 10px;
+        gap: 8px;
+        flex-direction: row;
     }
 
     button {
-        padding: 10px 30px;
-        font-size: 16px;
+        padding: 8px 25px;
+        font-size: 15px;
     }
 
     #popup {
-        margin-top: 15px;
+        margin-top: 10px;
     }
 
     img {
-        max-width: 200px;
+        max-width: 180px;
     }
 
     #heartPopup .popup-content {
-        padding: 30px 25px;
+        padding: 20px 25px;
         max-height: 85vh;
         overflow-y: auto;
     }
 
     #heartPopup h2 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     #heartPopup div[style*="font-size: 80px"] {
-        font-size: 50px !important;
-        margin: 10px 0 !important;
+        font-size: 40px !important;
+        margin: 8px 0 !important;
     }
 }
 </style>
