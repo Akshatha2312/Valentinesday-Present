@@ -1213,10 +1213,11 @@ function moveNoButton() {
 }
 
 noBtn.addEventListener("mouseover", moveNoButton);
-noBtn.addEventListener("touchstart", function(e) {
-    e.preventDefault();
-    moveNoButton();
-});
+// noBtn.addEventListener("touchstart", function(e) {
+//     e.preventDefault();
+//     moveNoButton();
+// });
+noBtn.addEventListener("touchstart", moveNoButton);
 
 function launchConfetti() {
     const colors = ['#ff1744', '#ff69b4', '#ff1493', '#ff4569', '#ffb3c6', '#ff85a2', '#c71e3d'];
