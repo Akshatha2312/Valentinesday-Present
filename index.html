@@ -397,14 +397,19 @@ img:hover {
     animation: fadeIn 1.5s ease forwards;
     max-width: 600px;
     width: 90%;
-    padding: 30px;
+    padding: 40px 30px;
     box-sizing: border-box;
     z-index: 10;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    border: 3px solid rgba(255, 192, 203, 0.5);
 }
 
 #secondScreen h1 {
     font-size: 52px;
     margin-bottom: 40px;
+    padding: 0 10px;
 }
 
 #foreverBtn {
@@ -422,6 +427,10 @@ img:hover {
     transition: all 0.4s ease;
     box-shadow: 0 15px 40px rgba(255, 23, 68, 0.6), 0 0 30px rgba(255, 105, 180, 0.5);
     position: relative;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: auto;
+    z-index: 15;
 }
 
 #foreverBtn::before {
@@ -468,11 +477,15 @@ img:hover {
     text-align: center;
     color: white;
     animation: fadeIn 2s ease forwards;
-    padding: 40px;
+    padding: 40px 30px;
     width: 90%;
     max-width: 600px;
     box-sizing: border-box;
     z-index: 10;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(25px);
+    border-radius: 30px;
+    border: 3px solid rgba(255, 192, 203, 0.5);
 }
 #finalScreen h1 {
     font-size: 56px;
@@ -481,6 +494,7 @@ img:hover {
     margin-bottom: 20px;
     text-shadow: 0 0 30px rgba(255, 23, 68, 0.8), 0 0 60px rgba(255, 105, 180, 0.6);
     position: relative;
+    padding: 0 10px;
 }
 
 #finalScreen h1::before {
@@ -495,6 +509,7 @@ img:hover {
     font-size: 40px;
     font-weight: 700;
     text-shadow: 0 0 20px rgba(255, 23, 68, 0.8);
+    padding: 0 10px;
 }
 @keyframes loveGlow {
     from { filter: drop-shadow(0 0 30px #ff1744) drop-shadow(0 0 60px #ff69b4); }
@@ -516,14 +531,17 @@ img:hover {
     background: linear-gradient(135deg, #ff1744, #ff4569, #ff69b4, #ff1493, #ff1744);
     background-size: 400% 400%;
     animation: lovePopupGradient 5s ease infinite;
-    padding: 60px 70px;
+    padding: 50px 40px;
     border-radius: 50px;
     text-align: center;
     box-shadow: 0 30px 90px rgba(255, 23, 68, 0.9), 0 0 120px rgba(255, 105, 180, 0.7), inset 0 0 80px rgba(255, 255, 255, 0.1);
     border: 5px solid rgba(255, 255, 255, 0.7);
     position: relative;
     overflow: hidden;
-    min-width: 400px;
+    min-width: auto;
+    width: 90%;
+    max-width: 500px;
+    box-sizing: border-box;
 }
 
 #heartPopup .popup-content::before {
@@ -617,8 +635,9 @@ img:hover {
     background: radial-gradient(circle, rgba(255, 23, 68, 0.3), rgba(255, 20, 147, 0.5), rgba(0, 0, 0, 0.85));
     backdrop-filter: blur(10px);
     pointer-events: auto;
-    z-index: 999;
+    z-index: 998;
     animation: fadeIn 0.5s ease;
+    touch-action: manipulation;
 }
 
 /* Mobile Responsive Styles */
@@ -763,30 +782,31 @@ img:hover {
 
     #secondScreen {
         max-width: 100%;
-        width: 90%;
-        padding: 20px 15px;
+        width: 85%;
+        padding: 30px 20px;
         box-sizing: border-box;
         left: 50%;
         transform: translate(-50%, -50%);
     }
 
     #secondScreen h1 {
-        font-size: 30px;
-        margin-bottom: 20px;
-        padding: 0 30px;
+        font-size: 32px;
+        margin-bottom: 25px;
+        padding: 0 10px;
     }
 
     #secondScreen > div:first-child {
-        font-size: 32px !important;
-        margin-bottom: 12px !important;
+        font-size: 35px !important;
+        margin-bottom: 15px !important;
     }
 
     #foreverBtn {
-        padding: 15px 35px;
-        font-size: 19px;
+        padding: 16px 35px;
+        font-size: 20px;
         border-width: 3px;
-        max-width: 220px;
-        width: 100%;
+        max-width: 280px;
+        width: auto;
+        margin-top: 20px;
     }
 
     #foreverBtn::before {
@@ -825,50 +845,51 @@ img:hover {
 
     #heartPopup .popup-content {
         min-width: auto;
-        width: 90%;
-        max-width: 360px;
-        padding: 35px 20px;
-        border-radius: 25px;
+        width: 85%;
+        max-width: 380px;
+        padding: 40px 25px;
+        border-radius: 28px;
         border-width: 3px;
         box-sizing: border-box;
     }
 
     #heartPopup .popup-content::before {
-        font-size: 24px;
-        letter-spacing: 8px;
+        font-size: 26px;
+        letter-spacing: 10px;
     }
 
     #heartPopup h2 {
-        font-size: 28px;
-        letter-spacing: 1px;
+        font-size: 30px;
+        letter-spacing: 1.5px;
     }
 
     #heartPopup p {
-        font-size: 18px;
+        font-size: 20px;
         padding: 0 5px;
     }
 
     #heartPopup div[style*="font-size: 80px"] {
-        font-size: 55px !important;
-        margin: 15px 0 !important;
+        font-size: 60px !important;
+        margin: 18px 0 !important;
     }
 
     .floating-heart {
-        font-size: 30px;
+        font-size: 32px;
     }
 
     .sparkle {
-        width: 5px;
-        height: 5px;
+        width: 6px;
+        height: 6px;
     }
 
     #heartPopup button {
-        padding: 13px 30px !important;
-        font-size: 17px !important;
-        margin-top: 18px !important;
+        padding: 15px 35px !important;
+        font-size: 18px !important;
+        margin-top: 20px !important;
         width: auto;
         max-width: 90%;
         pointer-events: auto;
+        z-index: 1001;
     }
 }
 
@@ -965,21 +986,22 @@ img:hover {
     }
 
     #secondScreen h1 {
-        font-size: 26px;
+        font-size: 28px;
         padding: 0 15px;
     }
 
     #secondScreen > div:first-child {
-        font-size: 28px !important;
-        margin-bottom: 12px !important;
+        font-size: 32px !important;
+        margin-bottom: 15px !important;
     }
 
     #foreverBtn {
-        padding: 13px 30px;
-        font-size: 17px;
+        padding: 14px 32px;
+        font-size: 18px;
         border-width: 3px;
-        max-width: 220px;
+        max-width: 240px;
         width: auto;
+        margin-top: 20px;
     }
 
     #foreverBtn::before {
@@ -988,21 +1010,24 @@ img:hover {
     }
 
     #finalScreen h1 {
-        font-size: 28px;
+        font-size: 32px;
         padding: 0 8px;
+        margin-bottom: 15px;
     }
 
     #finalScreen h1::before {
-        font-size: 26px;
+        font-size: 28px;
+        margin-bottom: 10px;
     }
 
     #finalScreen h2 {
-        font-size: 20px;
+        font-size: 24px;
         padding: 0 8px;
     }
 
     #finalScreen > div:last-child {
-        font-size: 32px !important;
+        font-size: 40px !important;
+        margin-top: 20px !important;
     }
 
     #heartPopup .popup-content {
@@ -1035,16 +1060,17 @@ img:hover {
     }
 
     #heartPopup button {
-        padding: 12px 25px !important;
-        font-size: 15px !important;
+        padding: 14px 28px !important;
+        font-size: 16px !important;
         width: auto;
         max-width: 85%;
         position: relative !important;
         left: auto !important;
         top: auto !important;
-        margin: 15px auto !important;
+        margin: 18px auto !important;
         pointer-events: auto;
         z-index: 1001;
+        touch-action: manipulation;
     }
 }
 
@@ -1066,7 +1092,7 @@ img:hover {
 
     h1 {
         font-size: 20px;
-        padding: 0 25px;
+        padding: 0 20px;
     }
 
     h1::before,
@@ -1080,10 +1106,10 @@ img:hover {
     }
 
     button {
-        padding: 14px 20px;
+        padding: 12px 20px;
         font-size: 15px;
         width: 85%;
-        max-width: 200px;
+        max-width: 180px;
         margin: 0 auto !important;
         display: block;
         position: static !important;
@@ -1104,38 +1130,76 @@ img:hover {
 
     #secondScreen h1 {
         font-size: 22px;
-        padding: 0 15px;
+        padding: 0 12px;
     }
 
     #secondScreen > div:first-child {
-        font-size: 26px !important;
-        margin-bottom: 10px !important;
+        font-size: 24px !important;
+        margin-bottom: 12px !important;
     }
 
     #foreverBtn {
-        padding: 12px 28px;
+        padding: 12px 25px;
         font-size: 16px;
         border-width: 3px;
-        max-width: 200px;
+        max-width: 180px;
         width: auto;
     }
 
     #finalScreen h1 {
-        font-size: 24px;
+        font-size: 26px;
         padding: 0 8px;
+    }
+
+    #finalScreen h1::before {
+        font-size: 24px;
+        margin-bottom: 10px;
     }
 
     #finalScreen h2 {
-        font-size: 18px;
+        font-size: 20px;
         padding: 0 8px;
     }
 
+    #finalScreen > div:last-child {
+        font-size: 32px !important;
+        margin-top: 15px !important;
+    }
+
+    #heartPopup .popup-content {
+        width: 85%;
+        padding: 25px 15px;
+        border-radius: 20px;
+        box-sizing: border-box;
+    }
+
+    #heartPopup .popup-content::before {
+        font-size: 18px;
+        letter-spacing: 4px;
+    }
+
     #heartPopup h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     #heartPopup p {
         font-size: 14px;
+    }
+
+    #heartPopup div[style*="font-size: 80px"] {
+        font-size: 40px !important;
+        margin: 10px 0 !important;
+    }
+
+    .floating-heart {
+        font-size: 22px;
+    }
+
+    #heartPopup button {
+        padding: 12px 22px !important;
+        font-size: 14px !important;
+        max-width: 80%;
+        margin: 12px auto !important;
     }
 }
 
@@ -1143,19 +1207,22 @@ img:hover {
 @media screen and (max-height: 600px) and (orientation: landscape) {
     body {
         padding: 5px;
+        justify-content: center;
+        align-items: center;
     }
 
     .card {
         padding: 15px 20px;
         max-height: 90vh;
         overflow-y: auto;
-        width: calc(100% - 20px);
+        width: auto;
+        margin: 5px auto;
     }
 
     h1 {
         font-size: 24px;
         margin-bottom: 10px;
-        padding: 0 30px;
+        padding: 0 20px;
     }
 
     .buttons {
@@ -1165,8 +1232,11 @@ img:hover {
     }
 
     button {
-        padding: 8px 25px;
+        padding: 10px 25px;
         font-size: 15px;
+        width: auto;
+        max-width: 180px;
+        margin: 0 5px;
     }
 
     #popup {
@@ -1174,13 +1244,59 @@ img:hover {
     }
 
     img {
-        max-width: 180px;
+        max-width: 160px;
+        height: auto;
+    }
+
+    #secondScreen {
+        width: 85%;
+        padding: 20px 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    #secondScreen h1 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    #secondScreen > div:first-child {
+        font-size: 30px !important;
+        margin-bottom: 10px !important;
+    }
+
+    #foreverBtn {
+        padding: 12px 28px;
+        font-size: 16px;
+        max-width: 200px;
+    }
+
+    #finalScreen {
+        width: 85%;
+        padding: 20px 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    #finalScreen h1 {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    #finalScreen h1::before {
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+
+    #finalScreen h2 {
+        font-size: 22px;
     }
 
     #heartPopup .popup-content {
-        padding: 20px 25px;
+        padding: 20px 20px;
         max-height: 85vh;
         overflow-y: auto;
+        width: 80%;
     }
 
     #heartPopup h2 {
@@ -1188,8 +1304,14 @@ img:hover {
     }
 
     #heartPopup div[style*="font-size: 80px"] {
-        font-size: 40px !important;
-        margin: 8px 0 !important;
+        font-size: 50px !important;
+        margin: 10px 0 !important;
+    }
+
+    #heartPopup button {
+        padding: 12px 25px !important;
+        font-size: 15px !important;
+        margin-top: 15px !important;
     }
 }
 </style>
